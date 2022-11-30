@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block contents%}
+<div class="hero-wrap js-fullheight img" style="background-image: url({%static 'images/bg_1.jpg'%});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-center">
+				<div class="col-md-10 d-flex align-items-center ftco-animate">
+					<div class="text w-100 text-center">
+						<span class="subheading mb-2">Admin Login Form</span>
+
+                        <form action="{%url 'AdminLoginCheck'%}" method="POST" class="text-primary" style="width:100%">
+                    {% csrf_token %}
+                    <table>
+                        <div class="form-group row">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="loginid" required placeholder="Enter Login Id">
+                </div>
+              </div>
+                        <div class="form-group row">
+                <div class="col-md-12">
+                  <input type="password" class="form-control" name="pswd" required placeholder="Enter password">
+                </div>
+              </div>
+               <div class="form-group row">
+                <div class="col-md-5">
+                   <button class="btn btn-block btn-primary text-white py-3 px-2" style="margin-left:20%;"
+                                        type="submit">
+                                    Login
+                                </button>
+                </div>
+              </div>
+
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='GREEN'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+
+						<!--<p><a href="#" class="btn btn-primary">Contact us</a> <a href="#" class="btn btn-secondary">Search Job</a></p>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{%endblock%}

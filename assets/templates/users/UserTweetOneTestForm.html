@@ -1,0 +1,58 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+
+{%block contents%}
+<div class="hero-wrap js-fullheight img" style="background-image: url({%static 'images/bg_1.jpg'%});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-center">
+				<div class="col-md-10 d-flex align-items-center ftco-animate">
+					<div class="text w-100 text-center">
+						<span class="subheading mb-2">Enter a Tweet Here</span>
+						 <form action="{%url 'UserTweetOneProcess'%}" method="POST" class="text-primary" style="width:100%">
+                    {% csrf_token %}
+                    <table>
+                        <div class="form-group row">
+                <div class="col-md-12">
+					<textarea  class="form-control" name="Tweet" required placeholder="Enter Tweet here" rows="3" cols="40"></textarea>
+                </div>
+              </div>
+
+               <div class="form-group row">
+                <div class="col-md-5">
+                   <button class="btn btn-block btn-primary text-white py-3 px-2" style="margin-left:20%;"
+                                        type="submit">
+                                    Test
+                                </button>
+                </div>
+              </div>
+
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='GREEN'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+<h2>Give Tweet Message like this</h2>
+                        <ol class="subheading mb-2">
+                            <li>I'll kill myself am tired of living depressed and alone</li>
+                            <li>It's such a hot day, I'd like to have ice cream and visit the park</li>
+                            <li>truly glad specific people feel becoming happier day day</li>
+                            <li>clown know everything say dumb get people talking get bag suppose</li>
+                            <li>sorry corrected current power outage current time</li>
+                            <li>please get touch ask look case brown year old looking killing year old rapist</li>
+                            <li>ever think one day get married start swell cause</li>
+
+                        </ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{%endblock%}

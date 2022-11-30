@@ -1,0 +1,47 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+
+{%block contents%}
+<div class="hero-wrap js-fullheight img" style="background-image: url({%static 'images/bg_1.jpg'%});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-center">
+				<div class="col-md-10 d-flex align-items-center ftco-animate">
+					<div class="text w-100 text-center">
+						<span class="subheading mb-2">Search History</span>
+                        <center>
+                        <table border="2px" class="table table-hover table-dark">
+                    <thead>
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">Test Messages</th>
+                        <th scope="col">Predicted Results</th>
+                        <th scope="col">Accuracy Score</th>
+                        <th scope="col">Test Date</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row" style="color: BLUE; background-color:#FFFCBB">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.tweetmsg}}</td>
+                        <td>{{i.prediction}}</td>
+                        <td>{{i.accuracy}}%</td>
+                        <td>{{i.cdate}}</td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                        </center>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{%endblock%}
